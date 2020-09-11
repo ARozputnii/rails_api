@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       devise_scope :user do
-        post "sing up", to: "registrations#create"
+        post 'sing_up', to: 'registrations#create'
+        post 'sing_in', to: 'sessions#create'
+        delete 'log_out', to: 'sessions#destroy'
       end
     end
   end
