@@ -43,3 +43,4 @@ gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem 'koala', '~> 2.4'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'active_model_serializers', '~> 0.10.0'
