@@ -1,6 +1,6 @@
 class Api::V1::SessionsController < Devise::SessionsController
   before_action :sign_in_params, only: :create
-  before_action :load_user, only: :create
+  before_action :set_user, only: :create
   before_action :valid_token, only: :destroy
   skip_before_action :verify_signed_out_user, only: :destroy
 
@@ -21,10 +21,10 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   private
   def sign_in_params
-    params.require(:sing_in).permit(:email, :password)
+    params.require(:sign_in).permit(:email, :password)
   end
 
-  def load_user
+  def set_user
     @user = User.find_for_database_authentication(email: sign_in_params[:email])
     if @user
       @user

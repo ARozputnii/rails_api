@@ -9,4 +9,11 @@ class User < ApplicationRecord
     token = User.generate_unique_secure_token
     update_attributes(authentication_token: token)
   end
+
+  has_many :reviews
+
+  def caculate_average_rating
+    super
+  end
 end
+
