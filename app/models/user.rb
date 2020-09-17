@@ -5,15 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :reviews
+
   def generate_new_authentication_token
     token = User.generate_unique_secure_token
     update_attributes(authentication_token: token)
-  end
-
-  has_many :reviews
-
-  def caculate_average_rating
-    super
   end
 end
 
